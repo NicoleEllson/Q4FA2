@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+
+    <script>
+        function multiplicationTable(){
+            var row = document.getElementById("row").value;
+            var column = document.getElementById("col").value;
+            var tableCtrl = document.getElementById("tableControl");
+
+            row = parseInt(row);
+            column = parseInt(column);
+            tableCtrl.innerHTML="";
+
+    if (row<2||row>10||column<2||column>10) {
+        alert("ENTER NUMBERS BETWEEN 2 AND 10!!!!!!!!!!!!!!!!!!!!");
+        return; 
+    }
+
+    var mulTable = "<table border='1'>";
+    for (var r = 1;r<=row;r++) {
+        mulTable+="<tr>";
+        for (var c = 1;c<=column;c++) {
+            mulTable+="<td>"+(r*c)+"</td>";
+        }
+        mulTable+="</tr>";
+    }
+    mulTable+="</table>";
+    tableCtrl.innerHTML=mulTable;
+} 
+    </script>
+
+    <h1>Multiplication Table</h1>
+    <h2>Please enter values between 2 and 10</h2>
+    <input type="number" 
+           id="row" 
+           placeholder="Rows">
+    
+    <input type="number" 
+           id="col" 
+           placeholder="Columns">
+    <button onclick="multiplicationTable()">Create Table</button>
+    <div id="tableCont"></div>
+</body>
+</html>
